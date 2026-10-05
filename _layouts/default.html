@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.title %}
+  {%- assign page_title = page.title | append: " – " | append: site.title %}
+  {%- else %}
+  {%- assign page_title = site.title | append: " – " | append: site.tagline %}
+  {%- endif %}
+  {%- assign page_description = page.description | default: site.description %}
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content="{{ page_description | strip_newlines | escape }}">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | strip_newlines | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:locale" content="de_DE">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }} – Blog" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="preload" href="{{ '/assets/fonts/heros-cn-700.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/inter-400.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <nav class="wrap site-nav" aria-label="Seitennavigation">
+      {%- if page.url == "/" %}
+      <a href="#erfahrung">Erfahrung</a>
+      <a href="#kenntnisse">Kenntnisse</a>
+      <a href="#studium">Studium</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="#kontakt">Kontakt</a>
+      {%- else %}
+      <a class="nav-home" href="{{ '/' | relative_url }}">Tom-Niklas Müller</a>
+      <a href="{{ '/blog/' | relative_url }}"{% if page.url == "/blog/" %} aria-current="page"{% endif %}>Blog</a>
+      <a href="#kontakt">Kontakt</a>
+      {%- endif %}
+    </nav>
+  </header>
+
+  <main id="inhalt">
+{{ content }}
+  </main>
+
+  <footer class="contact" id="kontakt">
+    <div class="wrap">
+      <h2>Kontakt</h2>
+      <p class="contact-mail"><a href="mailto:tomniklasmueller96@gmail.com">tomniklasmueller96@gmail.com</a></p>
+      <p class="contact-more">
+        <a href="https://www.linkedin.com/in/tom-niklas-m%C3%BCller-3b28241a2" rel="me noopener">LinkedIn-Profil ansehen</a>
+        <span>Lüneburg</span>
+      </p>
+      <p class="legal">© {{ site.time | date: "%Y" }} Tom-Niklas Müller</p>
+    </div>
+  </footer>
+</body>
+</html>

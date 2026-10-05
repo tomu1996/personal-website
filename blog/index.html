@@ -1,0 +1,22 @@
+---
+layout: default
+title: Blog
+description: Artikel von Tom-Niklas Müller über Projekte mit Business Central, CI/CD und KI-Tools in der Entwicklung.
+---
+<section class="wrap page-head">
+  <h1 class="page-title">Blog</h1>
+  <p class="lead">Artikel über meine Projekte: Entwicklung mit Business Central, CI/CD-Pipelines und KI-Tools im Entwickleralltag.</p>
+</section>
+
+<div class="wrap blog-list">
+  {%- if site.posts.size > 0 %}
+  {%- assign row_tag = "h2" %}
+  <ol class="posts">
+    {%- for post in site.posts %}
+    {% include post-row.html %}
+    {%- endfor %}
+  </ol>
+  {%- else %}
+  <p class="empty">Hier erscheinen bald die ersten Artikel.</p>
+  {%- endif %}
+</div>

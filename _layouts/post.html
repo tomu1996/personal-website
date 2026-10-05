@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="wrap post">
+  <p class="post-back"><a href="{{ '/blog/' | relative_url }}">Zurück zur Übersicht</a></p>
+
+  <header class="post-head">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">Veröffentlicht am <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time></p>
+    {%- if page.description %}
+    <p class="post-lead">{{ page.description | escape }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="prose">
+{{ content }}
+  </div>
+
+  {%- if page.next or page.previous %}
+  <nav class="post-nav" aria-label="Weitere Artikel">
+    {%- if page.next %}
+    <p>Neuerer Artikel: <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a></p>
+    {%- endif %}
+    {%- if page.previous %}
+    <p>Älterer Artikel: <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a></p>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</article>

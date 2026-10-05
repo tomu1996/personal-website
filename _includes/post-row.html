@@ -1,0 +1,7 @@
+<li class="post-row">
+  <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+  <div class="post-summary">
+    <{{ row_tag }} class="post-row-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></{{ row_tag }}>
+    <p>{{ post.description | default: post.excerpt | strip_html | strip | truncate: 220 }}</p>
+  </div>
+</li>

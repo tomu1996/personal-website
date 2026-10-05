@@ -1,0 +1,36 @@
+# Einstellungen für GitHub Pages (Jekyll)
+title: Tom-Niklas Müller
+tagline: Softwareentwickler für Business Central und DevOps
+description: >-
+  Softwareentwickler mit rund 10 Jahren Praxiserfahrung, spezialisiert auf
+  Microsoft Dynamics 365 Business Central (AL), CI/CD in Azure DevOps und die
+  Automatisierung von Geschäftsprozessen.
+lang: de
+url: https://tomu1996.github.io
+baseurl: /personal-website
+timezone: Europe/Berlin
+
+author:
+  name: Tom-Niklas Müller
+
+# Artikel liegen als Markdown-Dateien in _posts und erscheinen unter /blog/<titel>/
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
